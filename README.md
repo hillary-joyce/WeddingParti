@@ -6,9 +6,6 @@ An app for brides and grooms to keep information for their wedding parties organ
 WeddingParti is an all-in-one platform for managing information for your bridesmaids or groomsmen.
 The inspiration came from being a bridesmaid in my best friends wedding. The experience was wonderful - but scrolling through texts and searching emails to find the information I needed was a headache. I wanted to create a better way to be a bridesmaid, a simple, elegant app for all the information a member of your wedding party needs. 
 
-## Elements
-* 
-
 ## MVP
 This project is currently in the planning phases. For an MVP, I plan on creating a demo version of the site that will include:
 * A login using Google Authentication or Okta Authentication
