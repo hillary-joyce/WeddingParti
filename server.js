@@ -1,38 +1,33 @@
-
 const express = require("express");
 const bodyParser = require("body-parser");
-const logger = require("morgan");
 const mongoose = require("mongoose");
+const routes = require("./routes");
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-const PORT = 3000;
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// Serve up static assets
+app.use(express.static("client/build"));
+// Add routes, both API and view
+app.use(routes);
 
-// Requiring the `User` model for accessing the `users` collection
-const Wedding = require("./models/wedding.js");
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
-// Initialize Express
-var app = express();
-
-// Configure middleware
-
-// Use morgan logger for logging requests
-app.use(logger("dev"));
-// Use body-parser for handling form submissions
-app.use(bodyParser.urlencoded({ extended: true }));
-// Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
-
-// By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/weddingdb");
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
+);
 
 
-
-Wedding.findOne({weddingName: "test6"}, 'calendarDates')
-  .then(dbModel => console.log(dbModel));
-
-
-// Start the server
+// Start the API server
 app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
