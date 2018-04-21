@@ -1,16 +1,20 @@
 const db = require("../models");
 
 module.exports = {
-  findById: function(req, res) {
+  findAll: function(req, res) {
     db.Wedding
-      .findById(req.params.id)
+      .findOne({_id: req.params.weddingId}, "chat")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
     db.Wedding
-      .create(req.body)
+      .findOneAndUpdate({_id: req.params.weddingId},
+        {$push:
+          {chat:{req.body}}
+        }
+      )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-    }
+  }
 };
