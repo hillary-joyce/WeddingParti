@@ -1,31 +1,13 @@
-// const express = require("express");
-// const path = require("path");
-// const PORT = process.env.PORT || 3001;
-// const app = express();
-//
-// // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-//
-// // Send every request to the React app
-// // Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-//
-// app.listen(PORT, function() {
-//   console.log(`🌎 ==> Server now on port ${PORT}!`);
-// });
-var express = require("express");
-var bodyParser = require("body-parser");
-var logger = require("morgan");
-var mongoose = require("mongoose");
 
-var PORT = 3000;
+const express = require("express");
+const bodyParser = require("body-parser");
+const logger = require("morgan");
+const mongoose = require("mongoose");
+
+const PORT = 3000;
 
 // Requiring the `User` model for accessing the `users` collection
-var Wedding = require("./models/wedding.js");
+const Wedding = require("./models/wedding.js");
 
 // Initialize Express
 var app = express();
@@ -44,9 +26,11 @@ app.use(express.static("public"));
 mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/weddingdb");
 
-// Routes
 
-Wedding.create({weddingName: "test", password:"testtest", users:["test"]});
+
+Wedding.findOne({weddingName: "test6"}, 'calendarDates')
+  .then(dbModel => console.log(dbModel));
+
 
 // Start the server
 app.listen(PORT, function() {
