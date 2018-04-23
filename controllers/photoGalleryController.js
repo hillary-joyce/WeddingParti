@@ -22,10 +22,18 @@ module.exports = {
     db.Wedding
       .findOneAndUpdate({_id: req.params.weddingId},
         {$pop:
-          {photoGallery:{req.body}}
+          {photoGallery:{_id: req.params.photoId}}
         }
       )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
 };
+
+
+
+Wedding.findOneAndUpdate({weddingName: "test3"},
+  {$pull:
+    {calendarDates: {description: "cool thing"}}
+  }
+).then(dbModel => console.log(dbModel));

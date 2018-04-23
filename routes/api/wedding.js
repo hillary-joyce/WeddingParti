@@ -15,13 +15,19 @@ router.route("/:weddingId/photos")
   .post(photoGalleryController.create)
   .delete(photoGalleryController.remove);
 
+router.route("/:weddingId/photos/:photoId")
+  .delete(photoGalleryController.remove);
+
 router.route("/:weddingId/calendar")
   .get(calendarController.findAll)
   .post(calendarController.create)
+
+router.route("/:weddingId/calendar/:calendarId")
   .delete(calendarController.remove);
 
 router.route("/:weddingId/chat")
   .get(chatController.findAll)
   .post(chatController.create);
 
+//Task Manager
 module.exports = router;
