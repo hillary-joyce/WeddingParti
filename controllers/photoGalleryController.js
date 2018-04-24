@@ -21,7 +21,7 @@ module.exports = {
   remove: function(req, res) {
     db.Wedding
       .findOneAndUpdate({_id: req.params.weddingId},
-        {$pop:
+        {$pull:
           {photoGallery:{_id: req.params.photoId}}
         }
       )
@@ -29,11 +29,3 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   }
 };
-
-
-
-Wedding.findOneAndUpdate({weddingName: "test3"},
-  {$pull:
-    {calendarDates: {description: "cool thing"}}
-  }
-).then(dbModel => console.log(dbModel));
