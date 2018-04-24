@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Subdocuments
 const calendarDates = new Schema({
   date: {type: Date, required: true},
   description: {type: String, required: true}
@@ -10,6 +11,11 @@ const photoGallery = new Schema({
   url: {type: String, required: true},
   description: {type: String},
   tags: {type: String}
+});
+
+const taskManager = new Schema({
+  projectName: {type: String, required: true},
+  taskItems: {type: Array}
 });
 
 const chatHistory = new Schema({
@@ -26,6 +32,7 @@ const weddingSchema = new Schema({
   bride: {type: String},
   calendarDates: [calendarDates],
   photoGallery: [photoGallery],
+  taskManager: [taskManager],
   chat: [chatHistory]
 })
 

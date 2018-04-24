@@ -20,8 +20,8 @@ module.exports = {
   remove: function(req, res) {
     db.Wedding
       .findOneAndUpdate({_id: req.params.weddingId},
-        {$pop:
-          {calendarDates:{req.body}}
+        {$pull:
+          {calendarDates: {_id: req.params.datedId}}
         }
       )
       .then(dbModel => res.json(dbModel))
