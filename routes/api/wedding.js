@@ -36,10 +36,10 @@ router.route("/:weddingId/calendar/:calendarId")
   .delete(calendarController.remove);
 
 //CHAT
-//Find All Chat messages, add new chat message
-router.route("/:weddingId/chat")
-  .get(chatController.findAll)
-  .post(chatController.create);
+// //Find All Chat messages, add new chat message
+// router.route("/:weddingId/chat")
+//   .get(chatController.findAll)
+//   .post(chatController.create);
 
 //TASK MANAGER
 //Find all projects, add new project

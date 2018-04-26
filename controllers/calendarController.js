@@ -11,7 +11,7 @@ module.exports = {
     db.Wedding
       .findOneAndUpdate({_id: req.params.weddingId},
         {$push:
-          {calendarDates:{req.body}}
+          {calendarDates:{date: req.body.date, description:req.body.description}}
         }
       )
       .then(dbModel => res.json(dbModel))
