@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import SignIn from "../../components/SignIn";
-import SignInBtn from "../../components/SignInBtn"
+import SignInBtn from "../../components/SignInBtn";
+import EventList from "../../components/EventList";
 import API from "../../utils/API";
 
 class Welcome extends Component {
   state = {
-    weddingName: ""
+    weddingName: "",
+    weddingId: "",
+    calendarDates: [],
+
   }
 
   handleInputChange = event => {
@@ -17,7 +21,18 @@ class Welcome extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.weddingName);
+    API.getWedding(this.state.weddingName)
+      .then(res => this.setState({weddingId: res.data._id})
+      )
+      .catch(err => console.log(err))
+      .then(console.log(this.state.weddingId))
+  };
+
+  showCalendarDates = event => {
+    event.preventDefault();
+    API.getCalendarDates(this.state.weddingId)
+      .then(res => this.setState({calendarDates: res.data.calendarDates}))
+      .catch(err => console.log(err))
   };
 
   render() {
@@ -30,7 +45,19 @@ class Welcome extends Component {
       />
       <SignInBtn
         onClick={this.handleFormSubmit}
+
       />
+      <p>Wedding Id: {this.state.weddingId}</p>
+      <button onClick={this.showCalendarDates}>calndar</button>
+      <div>
+
+          <EventList>
+          {this.state.calendarDates.map(date =>
+          <p key={date.date}>{date.date} {date.description}</p>
+          )}
+          < /EventList>
+
+      </div>
     </div>
     );
   }

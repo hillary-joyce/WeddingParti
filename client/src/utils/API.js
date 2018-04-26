@@ -4,11 +4,11 @@ export default {
   //WEDDING routes
   //create new wedding
     createWedding: function() {
-      return axios.get("/api/weddings")
+      return axios.post("/api/weddings")
     },
   //get one wedding
     getWedding: function(id) {
-      return axios.post("/api/weddings" + id)
+      return axios.get("/api/weddings/" + id)
     },
   //CALENDAR
   //get wedding dates
