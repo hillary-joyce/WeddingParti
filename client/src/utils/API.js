@@ -16,8 +16,8 @@ export default {
       return axios.get("/api/weddings/" + weddingId + "/calendar")
     },
   //Add wedding date
-    addCalendarDates: function(weddingId) {
-      return axios.post("/api/weddings/" + weddingId + "/calendar")
+    addCalendarDates: function(weddingId, dateData) {
+      return axios.post("/api/weddings/" + weddingId + "/calendar", dateData)
     },
   //remove a calendar date
     removeCalendarDates: function(weddingId, calendarId) {

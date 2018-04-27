@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SignIn from "../../components/SignIn";
 import SignInBtn from "../../components/SignInBtn";
 import EventList from "../../components/EventList";
+import AddCalendarEvent from "../../components/AddCalendarEvent";
 import API from "../../utils/API";
 
 class Welcome extends Component {
@@ -9,7 +10,8 @@ class Welcome extends Component {
     weddingName: "",
     weddingId: "",
     calendarDates: [],
-
+    date: "",
+    description: ""
   }
 
   handleInputChange = event => {
@@ -22,18 +24,29 @@ class Welcome extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     API.getWedding(this.state.weddingName)
-      .then(res => this.setState({weddingId: res.data._id})
-      )
+      .then(res => this.setState({weddingId: res.data._id}))
       .catch(err => console.log(err))
-      .then(console.log(this.state.weddingId))
   };
 
-  showCalendarDates = event => {
-    event.preventDefault();
+  showCalendarDates = () => {
     API.getCalendarDates(this.state.weddingId)
       .then(res => this.setState({calendarDates: res.data.calendarDates}))
       .catch(err => console.log(err))
   };
+
+  addCalendarDate = () => {
+    console.log(this.state.date);
+    console.log(this.state.description);
+    API.addCalendarDates(this.state.weddingId,
+      {
+        date: this.state.date,
+        description: this.state.description
+      }
+    )
+    .then(res => this.showCalendarDates())
+    .catch(err => console.log(err));
+  }
+
 
   render() {
     return (
@@ -48,6 +61,12 @@ class Welcome extends Component {
 
       />
       <p>Wedding Id: {this.state.weddingId}</p>
+      <AddCalendarEvent
+        handleInputChange = {this.handleInputChange}
+        date = {this.state.date}
+        description = {this.state.description}
+        addDate = {this.addCalendarDate}
+      />
       <button onClick={this.showCalendarDates}>calndar</button>
       <div>
 
