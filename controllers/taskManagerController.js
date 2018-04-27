@@ -9,7 +9,7 @@ module.exports = {
   },
   findAllTasks: function(req, res){
     db.Wedding
-      .findOne({_id: req.params.weddingId, 'taskManager._id:' req.params.projectId})
+      .findOne({_id: req.params.weddingId, 'taskManager._id': req.params.projectId})
       .then(dbModel => res.json(dbModel.taskItems))
       .catch(err => res.status(422).json(err));
   },
@@ -46,7 +46,7 @@ module.exports = {
     db.Wedding
     .findOneAndUpdate({_id: req.params.weddingId},
       {$push:
-        {taskManager:{req.body}}
+        {taskManager:{projectName: req.body}}
       }
     )
     .then(dbModel => res.json(dbModel))

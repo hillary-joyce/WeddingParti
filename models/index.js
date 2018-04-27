@@ -1,3 +1,3 @@
 module.exports = {
-  Book: require("./wedding")
+  Wedding: require("./wedding")
 };
