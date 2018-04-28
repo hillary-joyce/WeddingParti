@@ -29,8 +29,8 @@ export default {
       return axios.get("/api/weddings/" + weddingId + "/photos")
     },
   //Add new photo
-    addPhotos: function(weddingId) {
-      return axios.post("/api/weddings/" + weddingId + "/photos")
+    addPhotos: function(weddingId, imageData) {
+      return axios.post("/api/weddings/" + weddingId + "/photos", imageData)
     },
   //remove one photo
     removePhotos: function(weddingId, photoId) {

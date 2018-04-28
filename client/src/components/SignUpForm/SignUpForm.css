@@ -1,0 +1,23 @@
+.sign-up-form {
+  width: 50%;
+  margin: 30px auto;
+  border-radius: 10px;
+  background: #eaf6ed;
+}
+
+.sign-up-btn {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  background: #d1e7da;
+}
+
+form {
+  padding: 20px;
+  color: black;
+}
+
+label {
+  font-family: Helvetica;
+  font-weight: 100;
+}

@@ -1,9 +1,13 @@
 import React from "react";
 
 const SignIn = props => (
-  <div className="form-group">
-    <input className="form-control" {...props} />
-  </div>
+  <form>
+    <label>Wedding Name: </label>
+    <input className="sign-in" value={props.value} onChange={props.handleInputChange} name="weddingName" />
+    <button className="button-primary" onClick={props.handleFormSubmit}>
+      Sign In
+    </button>
+  </form>
 )
 
 export default SignIn;

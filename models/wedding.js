@@ -9,7 +9,7 @@ const calendarDates = new Schema({
 });
 
 const photoGallery = new Schema({
-  url: {type: String, required: true},
+  url: {type: String},
   description: {type: String},
   tags: {type: String}
 });
