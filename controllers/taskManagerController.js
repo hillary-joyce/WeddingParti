@@ -23,16 +23,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // removeProject: function(req, res){
-  //   db.Wedding
-  //   .findOneAndUpdate({_id: req.params.weddingId},
-  //     {$pull:
-  //       {taskManager:{_id: req.params.projectId}}
-  //     }
-  //   )
-  //   .then(dbModel => res.json(dbModel))
-  //   .catch(err => res.status(422).json(err));
-  // },
   createTask: function(req, res){
     db.Wedding
       .findOneAndUpdate({_id: req.params.weddingId, 'taskManager._id': req.params.projectId},

@@ -3,8 +3,8 @@ import axios from "axios";
 export default {
   //WEDDING routes
   //create new wedding
-    createWedding: function() {
-      return axios.post("/api/weddings")
+    createWedding: function(weddingData) {
+      return axios.post("/api/weddings", weddingData)
     },
   //get one wedding
     getWedding: function(id) {

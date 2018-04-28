@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 //Subdocuments
 const calendarDates = new Schema({
-  date: {type: Date, required: true},
-  description: {type: String, required: true}
+  start: {type: Date},
+  end: {type: Date},
+  title: {type: String}
 });
 
 const photoGallery = new Schema({
@@ -18,12 +19,6 @@ const taskManager = new Schema({
   taskItems: {type: Array}
 });
 
-const chatHistory = new Schema({
-  userName: {type: String},
-  date: {type: Date, default: Date.now},
-  message: {type: String, minlength: 1}
-});
-
 const weddingSchema = new Schema({
   weddingName: {type: String, required: true},
   password: {type: String, required: true, minlength: 7},
@@ -32,8 +27,7 @@ const weddingSchema = new Schema({
   bride: {type: String},
   calendarDates: [calendarDates],
   photoGallery: [photoGallery],
-  taskManager: [taskManager],
-  chat: [chatHistory]
+  taskManager: [taskManager]
 })
 
 const Wedding = mongoose.model("Wedding", weddingSchema);

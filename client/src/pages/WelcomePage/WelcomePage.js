@@ -5,13 +5,21 @@ import EventList from "../../components/EventList";
 import AddCalendarEvent from "../../components/AddCalendarEvent";
 import API from "../../utils/API";
 
+//React Big Calendar imports and setup
+import Calendar from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+Calendar.setLocalizer(Calendar.momentLocalizer(moment));
+
+
 class Welcome extends Component {
   state = {
     weddingName: "",
     weddingId: "",
-    calendarDates: [],
-    date: "",
-    description: ""
+    startdate: "",
+    enddate: "",
+    title: "",
+    events: []
   }
 
   handleInputChange = event => {
@@ -30,17 +38,16 @@ class Welcome extends Component {
 
   showCalendarDates = () => {
     API.getCalendarDates(this.state.weddingId)
-      .then(res => this.setState({calendarDates: res.data.calendarDates}))
+      .then(res => this.setState({events: res.data.calendarDates}))
       .catch(err => console.log(err))
   };
 
   addCalendarDate = () => {
-    console.log(this.state.date);
-    console.log(this.state.description);
     API.addCalendarDates(this.state.weddingId,
       {
-        date: this.state.date,
-        description: this.state.description
+        start: this.state.startdate,
+        end: this.state.enddate,
+        title: this.state.title
       }
     )
     .then(res => this.showCalendarDates())
@@ -63,19 +70,24 @@ class Welcome extends Component {
       <p>Wedding Id: {this.state.weddingId}</p>
       <AddCalendarEvent
         handleInputChange = {this.handleInputChange}
-        date = {this.state.date}
-        description = {this.state.description}
+        startdate = {this.state.startdate}
+        enddate = {this.state.enddate}
+        title = {this.state.title}
         addDate = {this.addCalendarDate}
       />
       <button onClick={this.showCalendarDates}>calndar</button>
       <div>
-
+        <Calendar
+          defaultDate={new Date()}
+          defaultView="month"
+          events={this.state.events}
+          style={{ height: "100vh" }}
+        />
           <EventList>
-          {this.state.calendarDates.map(date =>
-          <p key={date.date}>{date.date} {date.description}</p>
+          {this.state.events.map(date =>
+          <p key={date.start}>{date.start} {date.title}</p>
           )}
           < /EventList>
-
       </div>
     </div>
     );

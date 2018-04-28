@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const calendarController = require("../../controllers/calendarController");
 const weddingController = require("../../controllers/weddingController");
-const chatController = require("../../controllers/chatController");
 const photoGalleryController = require("../../controllers/photoGalleryController");
 const taskManagerController = require("../../controllers/taskManagerController");
 
@@ -35,11 +34,6 @@ router.route("/:weddingId/calendar")
 router.route("/:weddingId/calendar/:calendarId")
   .delete(calendarController.remove);
 
-//CHAT
-// //Find All Chat messages, add new chat message
-// router.route("/:weddingId/chat")
-//   .get(chatController.findAll)
-//   .post(chatController.create);
 
 //TASK MANAGER
 //Find all projects, add new project
