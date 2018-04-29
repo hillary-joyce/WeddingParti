@@ -19,12 +19,16 @@ const taskManager = new Schema({
   taskItems: {type: Array}
 });
 
+
 const weddingSchema = new Schema({
   weddingName: {type: String, required: true},
   password: {type: String, required: true, minlength: 7},
-  users: {type: Array, required: true},
+  users: {type: Array},
   weddingDate: {type: Date, default: Date.now},
   bride: {type: String},
+  email: {type: String},
+  partner: {type: String},
+  venue: {type: String},
   calendarDates: [calendarDates],
   photoGallery: [photoGallery],
   taskManager: [taskManager]
