@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SignUpForm from "../../components/SignUpForm";
+import Homepage from "../../components/Homepage";
 import API from "../../utils/API";
-import Nav from "../../components/Nav";
 
 
 class HomePage extends Component {
@@ -47,6 +47,7 @@ class HomePage extends Component {
   render() {
     return(
     <div>
+      <Homepage>
       <SignUpForm
         weddingName={this.state.weddingName}
         password={this.state.password}
@@ -58,6 +59,7 @@ class HomePage extends Component {
         handleInputChange={this.handleInputChange}
         addWedding={this.addWedding}
       />
+      </Homepage>
     </div>
     )
   }

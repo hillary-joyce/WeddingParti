@@ -17,7 +17,7 @@ module.exports = {
     db.Wedding
       .findOneAndUpdate({_id: req.params.weddingId, 'taskManager._id': req.params.projectId},
         {$pull:
-          {'taskManager.$.taskItems': req.params.task}
+          {'taskManager.$.taskItems': {itemName: "test2"}}
         }
       )
       .then(dbModel => res.json(dbModel))
@@ -36,7 +36,7 @@ module.exports = {
     db.Wedding
     .findOneAndUpdate({_id: req.params.weddingId},
       {$push:
-        {taskManager:{projectName: req.body}}
+        {taskManager:(req.body)}
       }
     )
     .then(dbModel => res.json(dbModel))

@@ -25,11 +25,11 @@ handleInputChange = event => {
 
 getWeddingData = event => {
   event.preventDefault()
-  console.log("clicked");
   API.getWedding(this.state.weddingName)
     .then(res => this.setState(
       {
-        weddingId: res.data._id
+        weddingId: res.data._id,
+        weddingName: res.data.weddingName
       }
     ))
     .catch(err => console.log(err))
@@ -44,6 +44,7 @@ render() {
     <input name="weddingName" value={this.state.weddingName} onChange={this.handleInputChange}/>
     <button onClick={this.getWeddingData}>click</button>
     <p>{this.state.weddingName}</p>
+    <p>{this.state.weddingId}</p>
 
     <Route exact path="/" component={HomePage} />
     <Route exact path="/wedding" component={() => <WelcomePage weddingName={this.state.weddingName}/>}/>

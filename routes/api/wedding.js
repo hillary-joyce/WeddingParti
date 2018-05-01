@@ -41,10 +41,13 @@ router.route("/:weddingId/projects")
   .get(taskManagerController.findAllProjects)
   .post(taskManagerController.createProject);
 
-//find all tasks, remove task, add new task,
+//find all tasks, add new task,
 router.route("/:weddingId/projects/:projectId")
   .get(taskManagerController.findAllTasks)
-  .delete(taskManagerController.removeTask)
   .post(taskManagerController.createTask);
+
+//remove a task by id
+router.route("/:weddingId/projects/:projectId/:taskId")
+  .delete(taskManagerController.removeTask);
 
 module.exports = router;

@@ -19,9 +19,9 @@ class CalendarPage extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.weddingId);
     this.setState({weddingId: this.props.weddingId},
       () => this.showCalendarDates())
-    // this.getWeddingData()
   };
 
   handleInputChange = event => {

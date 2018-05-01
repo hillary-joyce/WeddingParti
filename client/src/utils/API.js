@@ -51,19 +51,19 @@ export default {
       return axios.get("/api/weddings/" + weddingId + "/projects")
     },
   //Add new project
-    addProject: function(weddingId){
-      return axios.post("/api/weddings/" + weddingId + "/projects")
+    addProject: function(weddingId, projectData){
+      return axios.post("/api/weddings/" + weddingId + "/projects", projectData)
     },
   //Find all tasks
     findTasks: function(weddingId, projectId) {
       return axios.get("/api/weddings/" + weddingId + "/projects/" + projectId)
     },
   //Add new task
-    addTask: function(weddingId, projectId) {
-      return axios.post("/api/weddings/" + weddingId + "/projects/" + projectId)
+    addTask: function(weddingId, projectId, taskData) {
+      return axios.post("/api/weddings/" + weddingId + "/projects/" + projectId, taskData)
     },
   //remove task
-    removeTask: function(weddingId, projectId) {
-      return axios.delete("/api/weddings/" + weddingId + "/projects/" + projectId)
+    removeTask: function(weddingId, projectId, taskId) {
+      return axios.delete("/api/weddings/" + weddingId + "/projects/" + projectId + "/" + taskId)
     }
 };

@@ -14,10 +14,16 @@ const photoGallery = new Schema({
   tags: {type: String}
 });
 
+const taskItem = new Schema({
+  itemName: {type: String, required: true},
+  owner: {type: String}
+})
+
 const taskManager = new Schema({
   projectName: {type: String, required: true},
-  taskItems: {type: Array}
+  taskItems: [taskItem]
 });
+
 
 
 const weddingSchema = new Schema({
