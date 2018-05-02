@@ -9,15 +9,15 @@ module.exports = {
   },
   findAllTasks: function(req, res){
     db.Wedding
-      .findOne({_id: req.params.weddingId, 'taskManager._id': req.params.projectId})
-      .then(dbModel => res.json(dbModel.taskItems))
+      .findOne({_id: req.params.weddingId, 'taskManager._id': req.params.projectId}, )
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   removeTask: function(req, res){
     db.Wedding
       .findOneAndUpdate({_id: req.params.weddingId, 'taskManager._id': req.params.projectId},
         {$pull:
-          {'taskManager.$.taskItems': {itemName: "test2"}}
+          {'taskManager.$.taskItems': {_id: req.params.taskId}}
         }
       )
       .then(dbModel => res.json(dbModel))

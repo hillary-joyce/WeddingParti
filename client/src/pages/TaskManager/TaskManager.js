@@ -8,9 +8,11 @@ class TaskManagerPage extends Component {
     weddingId: "",
     projectName: "",
     projectId: "",
+    projectArrayId: "",
     taskItem: "",
+    taskId: "",
     projects: [],
-    taskItems: []
+    tasks: []
   }
 
   handleInputChange = event => {
@@ -26,7 +28,6 @@ class TaskManagerPage extends Component {
   };
 
   getProjects = () => {
-    console.log(this.state.weddingId);
     API.findProjects(this.state.weddingId)
       .then(res => this.setState({projects: res.data.taskManager}))
       .catch(err => console.log(err))
@@ -46,31 +47,39 @@ class TaskManagerPage extends Component {
     this.setState({projectId: projectId}, () => console.log(this.state.projectId))
   }
 
-  findTasks = event => {
+  findProjectId = event => {
     event.preventDefault();
     const projectId = event.target.getAttribute("value")
-    this.setState({projectId: projectId},
-      () => API.findTasks(this.state.weddingId, this.state.projectId)
-      .then(res => this.setState({taskItems: res.data.taskItems}))
-      .catch(err => console.log(err))
+    const projectArrayId = event.target.getAttribute("index")
+    this.setState({projectId: projectId, projectArrayId: projectArrayId},
+      () => this.findTasks()
     )
+  }
+
+  findTasks = () => {
+    console.log(this.state.projectId + this.state.projectArrayId);
+    API.findTasks(this.state.weddingId, this.state.projectId)
+      .then(res => this.setState({tasks: res.data.taskManager[this.state.projectArrayId].taskItems}, () => console.log(this.state.tasks)))
+      .catch(err => console.log(err))
   }
 
   addTask = event => {
     event.preventDefault();
-    console.log(this.state.taskItem);
     API.addTask(this.state.weddingId, this.state.projectId,
-      {itemName: this.state.taskItem}
-    )
-      .then(res => console.log("taskadded"))
+      {
+        itemName: this.state.taskItem
+      })
+      .then(res => this.findTasks())
       .catch(err => console.log(err))
   }
 
   removeTask = event => {
     event.preventDefault();
-    API.removeTask(this.state.weddingId, this.state.projectId, "5ae7c0d28843ed05cc57072b")
-      .then(res => console.log('task deleted'))
+    this.setState({taskId: event.target.getAttribute("value")},
+      () => API.removeTask(this.state.weddingId, this.state.projectId, this.state.taskId)
+      .then(res => this.findTasks())
       .catch(err => console.log(err))
+    )
   }
 
   render() {
@@ -83,15 +92,23 @@ class TaskManagerPage extends Component {
       <input value={this.state.taskItem} name="taskItem" onChange={this.handleInputChange}/>
       <button onClick={this.addTask}>Add New Task</button>
       <p>state projectId: {this.state.projectId}</p>
-      <button onClick={this.removeTask}>Delete 1 task</button>
+
       <WeddingProjects>
         {this.state.projects.map(project =>
-        <div key={project._id} value={project._id} className="newproject" onClick={this.findTasks}>
-          <p value={project._id}>Project Name: {project.projectName}</p>
+        <div key={project._id} value={project._id} className="newproject" onClick={this.findProjectId}>
+          <p value={project._id} index={this.state.projects.indexOf(project)}>Project Name: {project.projectName} </p>
         </div>
         )
       }
       </WeddingProjects>
+      <WeddingTasks>
+        {this.state.tasks.map(taskItem =>
+          <div key={taskItem._id} value={taskItem._id} className="newtask">
+            <p value={taskItem._id}>{taskItem.itemName}</p>
+            <button onClick={this.removeTask} value={taskItem._id}>Task Completed</button>
+          </div>
+        )}
+      </WeddingTasks>
     </div>
 
     )
