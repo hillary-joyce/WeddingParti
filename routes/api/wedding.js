@@ -10,7 +10,7 @@ router.route("/")
   .post(weddingController.create);
 
 //Find one wedding by ID
-router.route("/:id")
+router.route("/:userEmail")
   .get(weddingController.findById);
 
 //PHOTO GALLERY

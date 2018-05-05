@@ -8,12 +8,16 @@ import PhotoGalleryPage from "../PhotoGallery";
 import TaskManagerPage from "../TaskManager";
 import Nav from "../../components/Nav"
 import API from "../../utils/API";
+import GoogleLogin from 'react-google-login';
+
+
 
 
 class SignInPage extends Component {
 state = {
   weddingName: "",
-  weddingId: ""
+  weddingId: "",
+  userEmail: ""
 }
 
 handleInputChange = event => {
@@ -23,9 +27,15 @@ handleInputChange = event => {
   });
 };
 
+responseGoogle = (response) => {
+  console.log(response);
+  console.log(response.profileObj.email);
+  this.setState({userEmail: response.profileObj.email},
+    () => this.getWeddingData())
+}
+
 getWeddingData = event => {
-  event.preventDefault()
-  API.getWedding(this.state.weddingName)
+  API.getWedding(this.state.userEmail)
     .then(res => this.setState(
       {
         weddingId: res.data._id,
@@ -34,7 +44,6 @@ getWeddingData = event => {
     ))
     .catch(err => console.log(err))
 }
-
 
 render() {
   return(
@@ -46,8 +55,15 @@ render() {
     <p>{this.state.weddingName}</p>
     <p>{this.state.weddingId}</p>
 
+    <GoogleLogin
+      clientId="35898574910-a499cdol1ke5dkrsu8qhsm0d04qsjq2b.apps.googleusercontent.com"
+      buttonText="Login"
+      onSuccess={this.responseGoogle}
+      onFailure={this.responseGoogle}
+    />
+    <p>email: {this.state.userEmail}</p>
     <Route exact path="/" component={HomePage} />
-    <Route exact path="/wedding" component={() => <WelcomePage weddingName={this.state.weddingName}/>}/>
+    <Route exact path="/wedding" component={() => <WelcomePage userEmail={this.state.userEmail}/>}/>
     <Route exact path="/wedding/calendar" component={() => <CalendarPage weddingId={this.state.weddingId}/>} />
     <Route path="/wedding/photogallery" component={() => <PhotoGalleryPage weddingId={this.state.weddingId}/>} />
     <Route path="/wedding/taskmanager" component={() => <TaskManagerPage weddingId={this.state.weddingId}/>} />

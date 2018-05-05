@@ -18,13 +18,14 @@ class HomePage extends Component {
 
   addWedding = event => {
     event.preventDefault()
+    var users = (this.state.users.replace(/ /g,'').split(','));
+    users.push(this.state.email)
     API.createWedding(
       {
         weddingName: this.state.weddingName,
         password: this.state.password,
         bride: this.state.bride,
-        email: this.state.email,
-        users: this.state.users.replace(/ /g,'').split(','),
+        users: users,
         partner: this.state.partner,
         venue: this.state.venue,
         weddingDate: this.state.weddingDate

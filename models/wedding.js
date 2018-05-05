@@ -32,7 +32,6 @@ const weddingSchema = new Schema({
   users: {type: Array},
   weddingDate: {type: Date, default: Date.now},
   bride: {type: String},
-  email: {type: String},
   partner: {type: String},
   venue: {type: String},
   calendarDates: [calendarDates],

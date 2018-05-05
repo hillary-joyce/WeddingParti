@@ -7,6 +7,7 @@ import moment from "moment";
 
 class Welcome extends Component {
   state = {
+    userEmail: "",
     weddingName: "",
     weddingId: "",
     bride: "",
@@ -17,12 +18,12 @@ class Welcome extends Component {
 
 
   componentDidMount() {
-    this.setState({weddingName: this.props.weddingName},
+    this.setState({userEmail: this.props.userEmail},
       () => this.getWeddingData())
   };
 
   getWeddingData = () => {
-    API.getWedding(this.state.weddingName)
+    API.getWedding(this.state.userEmail)
       .then(res => this.setState(
         {
           weddingId: res.data.weddingId,

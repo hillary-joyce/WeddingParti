@@ -7,8 +7,8 @@ export default {
       return axios.post("/api/weddings", weddingData)
     },
   //get one wedding
-    getWedding: function(id) {
-      return axios.get("/api/weddings/" + id)
+    getWedding: function(userEmail) {
+      return axios.get("/api/weddings/" + userEmail)
     },
   //CALENDAR
   //get wedding dates
