@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import SignUpForm from "../../components/SignUpForm";
 import Homepage from "../../components/Homepage";
 import API from "../../utils/API";
+import Nav from "../../components/Nav";
 
 
 class HomePage extends Component {

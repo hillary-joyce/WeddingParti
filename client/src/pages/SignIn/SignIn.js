@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as  Router, Route, Redirect, withRouter } from "react-router-dom";
 import HomePage from "../Homepage";
 import WelcomePage from "../WelcomePage";
 import CalendarPage from "../Calendar";
@@ -30,7 +30,7 @@ responseGoogle = (response) => {
   console.log(response);
   console.log(response.profileObj.email);
   this.setState({userEmail: response.profileObj.email},
-    () => this.getWeddingData())
+  () => this.getWeddingData())
 }
 
 getWeddingData = event => {
@@ -47,15 +47,16 @@ getWeddingData = event => {
 render() {
   return(
 <Router>
-  <div>
-    <Nav />
-    <GoogleLogin
+<div>
+  {this.state.userEmail != ""
+    ? <Redirect to="/wedding"/>
+    : <GoogleLogin
       clientId="35898574910-a499cdol1ke5dkrsu8qhsm0d04qsjq2b.apps.googleusercontent.com"
       buttonText="Login"
       onSuccess={this.responseGoogle}
       onFailure={this.responseGoogle}
     />
-    <p>email: {this.state.userEmail}</p>
+  }
     <Route exact path="/" component={HomePage} />
     <Route exact path="/wedding" component={() => <WelcomePage userEmail={this.state.userEmail}/>}/>
     <Route exact path="/wedding/calendar" component={() => <CalendarPage weddingId={this.state.weddingId}/>} />
