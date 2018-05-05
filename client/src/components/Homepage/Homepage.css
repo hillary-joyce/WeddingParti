@@ -1,0 +1,59 @@
+.homepage-header {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-weight: 500;
+  height: 50vh;
+}
+
+.homepage-header-img {
+  height: 30vh;
+  margin: 0 auto;
+  display: block;
+  padding: 10px;
+}
+
+.homepage-about {
+  font-size: 2.5rem;
+  padding: 5% 15%;
+  color: white;
+  height: 40vh;
+  background: linear-gradient(
+     rgba(105, 143, 126, 0.70),
+     rgba(105, 143, 126, 0.70)
+   ),
+   url(/images/bridesmaids_background.jpg);
+   background-size: cover;
+}
+
+.homepage-features {
+  padding: 5% 15%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.homepage-features h3 {
+  font-size: 3.5rem;
+  margin-bottom: 0;
+}
+
+.homepage-features img {
+  height: 8vh;
+}
+
+.homepage-features-heading {
+  grid-column: 1/span 3;
+  padding-bottom: 30px;
+}
+
+.homepage-signup-form {
+  background: #6e9474;
+  color: white;
+  padding: 40px;
+}
+
+.homepage-signup-form-heading {
+  text-align: center;
+}

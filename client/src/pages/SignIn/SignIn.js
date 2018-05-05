@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import SignIn from "../../components/SignIn";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomePage from "../Homepage";
 import WelcomePage from "../WelcomePage";
 import CalendarPage from "../Calendar";
@@ -50,11 +49,6 @@ render() {
 <Router>
   <div>
     <Nav />
-    <input name="weddingName" value={this.state.weddingName} onChange={this.handleInputChange}/>
-    <button onClick={this.getWeddingData}>click</button>
-    <p>{this.state.weddingName}</p>
-    <p>{this.state.weddingId}</p>
-
     <GoogleLogin
       clientId="35898574910-a499cdol1ke5dkrsu8qhsm0d04qsjq2b.apps.googleusercontent.com"
       buttonText="Login"

@@ -1,23 +1,41 @@
 .sign-up-form {
-  width: 50%;
   margin: 30px auto;
-  border-radius: 10px;
-  background: #eaf6ed;
+  border-radius: 5px;
 }
 
+.sign-up-form input {
+  border: none;
+  border-bottom: 2px solid white;
+  border-radius: 0px;
+  background: #6e9474;
+  color: white;
+  font-size: 2rem;
+}
+
+.sign-up-form p {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  margin-top:30px;
+}
+
+.sign-up-form label {
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
 .sign-up-btn {
   display: block;
-  margin: 0 auto;
-  width: 60%;
-  background: #d1e7da;
+  margin: 30px auto;
+  width: 50%;
+  background: #6e9474;
+  border: 3px solid white;
+  color: white;
+  font-size: 3rem;
+  height: 10vh;
 }
 
-form {
-  padding: 20px;
-  color: black;
-}
-
-label {
-  font-family: Helvetica;
-  font-weight: 100;
+.sign-up-btn:hover {
+  border: 5px solid white;
+  color: white;
+  background: #465F4A;
 }

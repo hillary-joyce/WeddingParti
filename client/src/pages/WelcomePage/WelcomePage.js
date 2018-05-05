@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../../components/Nav";
-import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import moment from "moment";
 

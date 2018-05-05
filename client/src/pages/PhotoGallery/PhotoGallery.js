@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import AddImageButton from "../../components/AddImageButton";
 import ImageGallery from "../../components/ImageGallery";
 import API from "../../utils/API";
-import moment from "moment";
 
 
 class PhotoGalleryPage extends Component {
