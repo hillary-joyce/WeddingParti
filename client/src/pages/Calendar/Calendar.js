@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import EventList from "../../components/EventList";
 import AddCalendarEvent from "../../components/AddCalendarEvent";
 import API from "../../utils/API";
-import Nav from "../../components/Nav"
+import Nav from "../../components/Nav";
+import CalendarContainer from "../../components/Calendar";
+import Event from "../../components/Event";
 import { Link } from "react-router-dom";
 
 //React Big Calendar imports and setup
@@ -71,16 +73,22 @@ render() {
           </li>
         </ul>
       </Nav>
-      <h1>Upcoming Events</h1>
+      <CalendarContainer>
       <Calendar
         defaultDate={new Date()}
         defaultView="month"
         events={this.state.events}
-        style={{ height: "50vh" }}
+        style={{ height: "75vh" }}
       />
         <EventList>
         {this.state.events.map(date =>
-        <p key={date.start}>{date.start} {date.title}</p>
+          <Event
+            key={date.start}
+            date={moment(date.start).format("DD")}
+            month={moment(date.start).format("MMM")}
+            fulldate={moment(date.start).format("DD / MM / YYYY")}
+            description={date.title}
+          />
         )}
         < /EventList>
         <AddCalendarEvent
@@ -90,6 +98,7 @@ render() {
           title = {this.state.title}
           addDate = {this.addCalendarDate}
         />
+      </CalendarContainer>
     </div>
   )
 }

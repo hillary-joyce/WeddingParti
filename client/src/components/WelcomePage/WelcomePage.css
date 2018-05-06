@@ -1,0 +1,16 @@
+.welcome-page {
+  width: 60vw;
+  text-align: center;
+  margin-top: 10vh;
+  border: 3px solid black;
+  padding: 5vh;
+}
+.welcome-page h2 {
+  margin: 0;
+  padding-top: 5vh;
+}
+
+.heart-icon {
+  height: 15vh;
+  padding: 5vh;
+}

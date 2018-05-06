@@ -1,0 +1,22 @@
+.new-event {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.event-date {
+  color: white;
+  background: #a3c7b5;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.event-date span {
+  display: block;
+}
+
+.event-day {
+  font-size: 3.5rem;
+  margin-bottom: -15px;
+}

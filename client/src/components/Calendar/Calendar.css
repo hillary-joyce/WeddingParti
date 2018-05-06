@@ -1,0 +1,10 @@
+.calendar-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+  margin-top: 50px;
+}
+
+.calendar-header{
+  grid-column: 1 / span 2;
+}

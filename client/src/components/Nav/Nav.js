@@ -4,8 +4,8 @@ import "./Nav.css";
 
 const Nav = props => (
 <div className="navBar">
+  <Link to="/"><img className="navabar-logo" src="/images/nav-logo.png"/></Link>
   {props.children}
-  <Link to="/"><img className="navabar-logo" src="/images/wedding_parti_logo1.png"/></Link>
 </div>
 )
 
