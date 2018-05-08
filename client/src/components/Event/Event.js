@@ -8,7 +8,7 @@ const Event = props => (
       <span>{props.month}</span>
     </div>
     <div className="event-details">
-      <span>{props.description}</span>
+      <span className="event-name">{props.description}</span><br/>
       <span>When: {props.fulldate}</span>
     </div>
   </div>

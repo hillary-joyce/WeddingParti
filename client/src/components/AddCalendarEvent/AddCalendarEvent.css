@@ -1,0 +1,13 @@
+.add-cal {
+  margin-top: 2rem;
+}
+
+.add-date {
+  margin-bottom: 100px;
+}
+
+.add-date .row {
+  background: #a3c7b5;
+  border: 1px solid #DDD;
+  padding: 10px;
+}

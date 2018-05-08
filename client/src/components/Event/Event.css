@@ -1,14 +1,16 @@
 .new-event {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  border: 2px solid black;
+  border: 1px solid #DDD;
+  border-radius: 3px;
   margin-bottom: 10px;
 }
 
 .event-date {
   color: white;
   background: #a3c7b5;
-  border: 1px solid black;
+  border-right: 1px solid #DDD;
+  border-radius: 3px;
   text-align: center;
 }
 
@@ -16,6 +18,13 @@
   display: block;
 }
 
+.event-details span {
+  padding-left: 20px;
+}
+
+.event-name {
+  font-size: 2rem;
+}
 .event-day {
   font-size: 3.5rem;
   margin-bottom: -15px;

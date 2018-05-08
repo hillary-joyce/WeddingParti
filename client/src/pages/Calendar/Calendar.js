@@ -35,12 +35,36 @@ class CalendarPage extends Component {
     })
   };
 
-  //Calendar routes
   showCalendarDates = () => {
     API.getCalendarDates(this.state.weddingId)
-      .then(res => this.setState({events: res.data.calendarDates}))
+      .then(res => this.sortCalendarDates(res.data.calendarDates))
       .catch(err => console.log(err))
   };
+
+  sortCalendarDates = (tempEvents) => {
+    let events = tempEvents.sort(function(a,b){
+      var c = new Date(a.start);
+      var d = new Date(b.start);
+      return c-d;
+    })
+    console.log(events)
+    this.setState({events: events})
+  }
+  // showCalendarDates = () => {
+  //   API.getCalendarDates(this.state.weddingId)
+  //     .then(res => this.setState({events: res.data.calendarDates},
+  //       () => this.sortCalendarDates()))
+  //     .catch(err => console.log(err))
+  // };
+  //
+  // sortCalendarDates = () => {
+  //   this.state.events.sort(function(a,b){
+  //     var c = new Date(a.start);
+  //     var d = new Date(b.start);
+  //     return c-d;
+  //   })
+  //   console.log(this.state.events)
+  // }
 
   addCalendarDate = () => {
     API.addCalendarDates(this.state.weddingId,
@@ -59,17 +83,17 @@ render() {
     <div>
       <Nav>
         <ul className="navbar-links">
-          <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
-            <Link to="/wedding/taskmanager">Task Manager</Link>
-          </li>
-          <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
-            <Link to="/wedding/photogallery">Photo Gallery</Link>
+          <li className={window.location.pathname === "/wedding" ? "active" : ""}>
+            <Link to="/wedding">Home</Link>
           </li>
           <li className={window.location.pathname === "/wedding/calendar" ? "active" : ""}>
             <Link to="/wedding/calendar">Calendar</Link>
           </li>
-          <li className={window.location.pathname === "/wedding" ? "active" : ""}>
-            <Link to="/wedding">Home</Link>
+          <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
+            <Link to="/wedding/photogallery">Photo Gallery</Link>
+          </li>
+          <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
+            <Link to="/wedding/taskmanager">Task Manager</Link>
           </li>
         </ul>
       </Nav>

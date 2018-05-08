@@ -380,9 +380,12 @@ hr {
   border-top: 1px solid #E1E1E1; }
 
 .rbc-row-segment .rbc-event {
-  background-color: #d1e7da;
+  background-color: #a3c7b5;
 }
 
+.rbc-today {
+  background: #edfded !important;
+}
 /* Clearing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
