@@ -42,7 +42,6 @@ class PhotoGalleryPage extends Component {
 
   addImage = event => {
     event.preventDefault();
-    console.log(this.state.photoGallery);
     API.addPhotos(this.state.weddingId, {
         url: this.state.url,
         imgurl: this.state.imgurl,
@@ -65,7 +64,7 @@ class PhotoGalleryPage extends Component {
             <Link to="/wedding/calendar">Calendar</Link>
           </li>
           <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
-            <Link to="/wedding/photogallery">Photo Gallery</Link>
+            <Link to="/wedding/photogallery">Image Gallery</Link>
           </li>
           <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
             <Link to="/wedding/taskmanager">Task Manager</Link>
@@ -73,14 +72,7 @@ class PhotoGalleryPage extends Component {
         </ul>
       </Nav>
       <div className="container">
-        <h1> Image Gallery </h1>
-        <AddImageButton
-          handleInputChange = {this.handleInputChange}
-          imgurl = {this.state.imgurl}
-          url={this.state.url}
-          imgDescription = {this.state.imgDescription}
-          addImage = {this.addImage}
-        />
+        <h1 className="image-gallery-header"> Image Gallery </h1>
         <ImageGallery> {
           this.state.photoGallery.map(image =>
             <Image
@@ -92,6 +84,13 @@ class PhotoGalleryPage extends Component {
           )
         }
       < /ImageGallery>
+      <AddImageButton
+        handleInputChange = {this.handleInputChange}
+        imgurl = {this.state.imgurl}
+        url={this.state.url}
+        imgDescription = {this.state.imgDescription}
+        addImage = {this.addImage}
+      />
     </div>
     </div>
     )

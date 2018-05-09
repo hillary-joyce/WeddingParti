@@ -53,7 +53,6 @@ class CalendarPage extends Component {
 
   addCalendarDate = event => {
     event.preventDefault();
-    console.log(this.state.location);
     API.addCalendarDates(this.state.weddingId,
       {
         start: this.state.startdate,
@@ -79,7 +78,7 @@ render() {
             <Link to="/wedding/calendar">Calendar</Link>
           </li>
           <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
-            <Link to="/wedding/photogallery">Photo Gallery</Link>
+            <Link to="/wedding/photogallery">Image Gallery</Link>
           </li>
           <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
             <Link to="/wedding/taskmanager">Task Manager</Link>

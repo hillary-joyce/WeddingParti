@@ -96,7 +96,7 @@ class TaskManagerPage extends Component {
             <Link to="/wedding/calendar">Calendar</Link>
           </li>
           <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
-            <Link to="/wedding/photogallery">Photo Gallery</Link>
+            <Link to="/wedding/photogallery">Image Gallery</Link>
           </li>
           <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
             <Link to="/wedding/taskmanager">Task Manager</Link>

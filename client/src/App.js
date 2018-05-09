@@ -36,7 +36,6 @@ logout = () => {
 }
 
 getWeddingData = event => {
-  try {
   API.getWedding(this.state.userEmail)
     .then(res => this.setState(
       {
@@ -46,10 +45,6 @@ getWeddingData = event => {
     ))
     .catch(err => console.log(err))
   }
-  catch (err) {
-    console.log("unable to find wedding with username" + this.state.userEmail);
-  }
-}
 
 render() {
   return(

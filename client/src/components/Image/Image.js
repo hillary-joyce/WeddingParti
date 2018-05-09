@@ -1,8 +1,9 @@
 import React from "react";
+import "./Image.css";
 
 const Image = props => (
 <div className="image-wrapper">
-  <a href={props.url}>
+  <a className="image-link" href={props.url} target="_blank">
     <img className="galleryImg"
     src={props.imgurl}
     alt="galleryimage"/>

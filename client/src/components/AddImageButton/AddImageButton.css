@@ -1,0 +1,21 @@
+.add-img-form{
+  background: #f3fff3;
+  border: 1px solid #DDD;
+  padding: 10px 45px;
+  border-radius: 4px;
+  font-size: 1.75rem;
+}
+
+.add-img-form label {
+  font-weight: 200;
+}
+
+.add-img-form input {
+  padding-left: 10px;
+}
+
+.add-img {
+  margin-top: 2.5rem;
+  background: #749e89;
+  color: white;
+}

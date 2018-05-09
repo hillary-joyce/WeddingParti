@@ -50,8 +50,8 @@ class Welcome extends Component {
           <Link to="/wedding/calendar">Calendar</Link>
         </li>
         <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
-          <Link to="/wedding/photogallery">Photo Gallery</Link>
-        </li>  
+          <Link to="/wedding/photogallery">Image Gallery</Link>
+        </li>
         <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
           <Link to="/wedding/taskmanager">Task Manager</Link>
         </li>
