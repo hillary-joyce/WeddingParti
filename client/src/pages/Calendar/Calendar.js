@@ -18,12 +18,13 @@ class CalendarPage extends Component {
     startdate: "",
     enddate: "",
     title: "",
+    time: "",
+    location: "",
     events: [],
     weddingId: ""
   }
 
   componentDidMount() {
-    console.log(this.props.weddingId);
     this.setState({weddingId: this.props.weddingId},
       () => this.showCalendarDates())
   };
@@ -47,31 +48,19 @@ class CalendarPage extends Component {
       var d = new Date(b.start);
       return c-d;
     })
-    console.log(events)
     this.setState({events: events})
   }
-  // showCalendarDates = () => {
-  //   API.getCalendarDates(this.state.weddingId)
-  //     .then(res => this.setState({events: res.data.calendarDates},
-  //       () => this.sortCalendarDates()))
-  //     .catch(err => console.log(err))
-  // };
-  //
-  // sortCalendarDates = () => {
-  //   this.state.events.sort(function(a,b){
-  //     var c = new Date(a.start);
-  //     var d = new Date(b.start);
-  //     return c-d;
-  //   })
-  //   console.log(this.state.events)
-  // }
 
-  addCalendarDate = () => {
+  addCalendarDate = event => {
+    event.preventDefault();
+    console.log(this.state.location);
     API.addCalendarDates(this.state.weddingId,
       {
         start: this.state.startdate,
         end: this.state.enddate,
-        title: this.state.title
+        title: this.state.title,
+        location: this.state.location,
+        time: this.state.time
       }
     )
     .then(res => this.showCalendarDates())
@@ -111,6 +100,8 @@ render() {
             date={moment(date.start).format("DD")}
             month={moment(date.start).format("MMM")}
             fulldate={moment(date.start).format("DD / MM / YYYY")}
+            time={date.time}
+            location={date.location}
             description={date.title}
           />
         )}
@@ -119,6 +110,8 @@ render() {
           handleInputChange = {this.handleInputChange}
           startdate = {this.state.startdate}
           enddate = {this.state.enddate}
+          time = {this.state.time}
+          location = {this.state.location}
           title = {this.state.title}
           addDate = {this.addCalendarDate}
         />

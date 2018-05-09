@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AddImageButton from "../../components/AddImageButton";
 import ImageGallery from "../../components/ImageGallery";
+import Image from "../../components/Image"
 import API from "../../utils/API";
 import Nav from "../../components/Nav";
 import { Link } from "react-router-dom";
@@ -9,7 +10,8 @@ import { Link } from "react-router-dom";
 class PhotoGalleryPage extends Component {
   state = {
     weddingId: "",
-    imgURL: "",
+    imgurl: "",
+    url: "",
     imgDescription: "",
     photoGallery: []
   }
@@ -40,8 +42,10 @@ class PhotoGalleryPage extends Component {
 
   addImage = event => {
     event.preventDefault();
+    console.log(this.state.photoGallery);
     API.addPhotos(this.state.weddingId, {
-        url: this.state.imgURL,
+        url: this.state.url,
+        imgurl: this.state.imgurl,
         description: this.state.imgDescription
       })
       .then(res => this.showImages())
@@ -54,37 +58,41 @@ class PhotoGalleryPage extends Component {
     <div>
       <Nav>
         <ul className="navbar-links">
-          <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
-            <Link to="/wedding/taskmanager">Task Manager</Link>
-          </li>
-          <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
-            <Link to="/wedding/photogallery">Photo Gallery</Link>
+          <li className={window.location.pathname === "/wedding" ? "active" : ""}>
+            <Link to="/wedding">Home</Link>
           </li>
           <li className={window.location.pathname === "/wedding/calendar" ? "active" : ""}>
             <Link to="/wedding/calendar">Calendar</Link>
           </li>
-          <li className={window.location.pathname === "/wedding" ? "active" : ""}>
-            <Link to="/wedding">Home</Link>
+          <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
+            <Link to="/wedding/photogallery">Photo Gallery</Link>
+          </li>
+          <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
+            <Link to="/wedding/taskmanager">Task Manager</Link>
           </li>
         </ul>
       </Nav>
-      <h1> Image Gallery </h1>
-      <AddImageButton
-        handleInputChange = {this.handleInputChange}
-        imgURL = {this.state.imgURL}
-        imgDescription = {this.state.imgDescription}
-        addImage = {this.addImage}
-      />
-      <ImageGallery> {
-        this.state.photoGallery.map(image =>
-          <div className = "img" >
-            <img src = {image.url} />
-            <p> {image.description} </p>
-          </div>
-        )
-      }
+      <div className="container">
+        <h1> Image Gallery </h1>
+        <AddImageButton
+          handleInputChange = {this.handleInputChange}
+          imgurl = {this.state.imgurl}
+          url={this.state.url}
+          imgDescription = {this.state.imgDescription}
+          addImage = {this.addImage}
+        />
+        <ImageGallery> {
+          this.state.photoGallery.map(image =>
+            <Image
+              key= {image.imgurl}
+              url= {image.url}
+              imgurl= {image.imgurl}
+              description= {image.description}
+            />
+          )
+        }
       < /ImageGallery>
-      <button onClick = {this.showImages} > Show Images </button>
+    </div>
     </div>
     )
   }

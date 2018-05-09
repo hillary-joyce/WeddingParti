@@ -1,13 +1,25 @@
 .add-cal {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  background: #749e89;
+  color: white;
 }
 
 .add-date {
   margin-bottom: 100px;
 }
 
-.add-date .row {
-  background: #a3c7b5;
+.add-new-event-form{
+  background: #f3fff3;
   border: 1px solid #DDD;
-  padding: 10px;
+  padding: 10px 45px;
+  border-radius: 4px;
+  font-size: 1.75rem;
+}
+
+.add-new-event-form label {
+  font-weight: 200;
+}
+
+.add-new-event-form input {
+  padding-left: 10px;
 }

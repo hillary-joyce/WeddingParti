@@ -12,7 +12,13 @@ module.exports = {
     db.Wedding
       .findOneAndUpdate({_id: req.params.weddingId},
         {$push:
-          {photoGallery:{url:req.body.url, description: req.body.description}}
+          {photoGallery:
+            {
+              imgurl: req.body.imgurl,
+              url:req.body.url,
+              description: req.body.description
+            }
+          }
         }
       )
       .then(dbModel => res.json(dbModel))

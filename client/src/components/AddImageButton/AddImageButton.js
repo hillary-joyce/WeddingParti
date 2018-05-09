@@ -1,14 +1,27 @@
 import React from "react";
 
 const AddImageButton = props => (
-  <form>
-    <label>Picture URL </label>
-    <input onChange={props.handleInputChange}
-    value={props.imgURL} name="imgURL"/>
-    <label> Description </label>
-    <input name="imgDescription" value={props.imgDescription} onChange={props.handleInputChange}/>
-
-    <button className="AddImg" onClick={props.addImage}>Add Image</button>
+  <form className="add-img-form">
+  <div className="row">
+    <div className="three columns">
+      <label>Image URL </label>
+      <input className="u-full-width" onChange={props.handleInputChange}
+      value={props.imgurl} name="imgurl"/>
+    </div>
+    <div className="three columns">
+      <label>Website URL </label>
+      <input className="u-full-width" onChange={props.handleInputChange}
+      value={props.url} name="url"/>
+    </div>
+    <div className="three columns">
+      <label> Description </label>
+      <input className="u-full-width" name="imgDescription"
+      value={props.imgDescription} onChange={props.handleInputChange}/>
+    </div>
+    <div className="three columns">
+      <button className="add-img" onClick={props.addImage}>Add Image</button>
+    </div>
+  </div>
   </form>
 );
 

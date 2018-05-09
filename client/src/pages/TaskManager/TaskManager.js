@@ -89,20 +89,20 @@ class TaskManagerPage extends Component {
     <div>
       <Nav>
         <ul className="navbar-links">
-        <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
-          <Link to="/wedding/taskmanager">Task Manager</Link>
-        </li>
-        <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
-          <Link to="/wedding/photogallery">Photo Gallery</Link>
-        </li>
-        <li className={window.location.pathname === "/wedding/calendar" ? "active" : ""}>
-          <Link to="/wedding/calendar">Calendar</Link>
-        </li>
-        <li className={window.location.pathname === "/wedding" ? "active" : ""}>
-          <Link to="/wedding">Home</Link>
-        </li>
-      </ul>
-    </Nav>
+          <li className={window.location.pathname === "/wedding" ? "active" : ""}>
+            <Link to="/wedding">Home</Link>
+          </li>
+          <li className={window.location.pathname === "/wedding/calendar" ? "active" : ""}>
+            <Link to="/wedding/calendar">Calendar</Link>
+          </li>
+          <li className={window.location.pathname === "/wedding/photogallery" ? "active" : ""}>
+            <Link to="/wedding/photogallery">Photo Gallery</Link>
+          </li>
+          <li className={window.location.pathname === "/wedding/taskmanager" ? "active" : ""}>
+            <Link to="/wedding/taskmanager">Task Manager</Link>
+          </li>
+        </ul>
+      </Nav>
       <label>Project Name</label>
       <input value={this.state.projectName} name="projectName" onChange={this.handleInputChange}/>
       <button onClick={this.addProject}>Add New Project</button>

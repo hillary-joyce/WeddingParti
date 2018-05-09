@@ -5,10 +5,13 @@ const Schema = mongoose.Schema;
 const calendarDates = new Schema({
   start: {type: Date},
   end: {type: Date},
+  time: {type: String},
+  location: {type: String},
   title: {type: String}
 });
 
 const photoGallery = new Schema({
+  imgurl: {type: String},
   url: {type: String},
   description: {type: String},
   tags: {type: String}

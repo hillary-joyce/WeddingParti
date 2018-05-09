@@ -9,7 +9,8 @@ const Event = props => (
     </div>
     <div className="event-details">
       <span className="event-name">{props.description}</span><br/>
-      <span>When: {props.fulldate}</span>
+      <span>When: {props.fulldate}, {props.time}</span><br/>
+      <span>Where: {props.location}</span>
     </div>
   </div>
 )
