@@ -11,7 +11,10 @@ var aboutBackground = {
   padding: '5% 15%',
   color: 'white',
   height: '40vh',
-  backgroundImage: 'url("../../images/bridesmaids_background.jpg")',
+  backgroundImage: `linear-gradient(
+     rgba(105, 143, 126, 0.70),
+     rgba(105, 143, 126, 0.70)
+   ),url(${BridesmaidsBg})`,
   backgroundSize: 'cover'
 }
 const Homepage = props => (
