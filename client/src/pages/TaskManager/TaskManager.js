@@ -80,7 +80,7 @@ class TaskManagerPage extends Component {
       })
       .then(res => this.setState(
         {
-          itemName: ""  
+          itemName: ""
         }, this.findTasks()))
       .catch(err => console.log(err))
   }
@@ -140,6 +140,7 @@ class TaskManagerPage extends Component {
             removeTask = {this.removeTask}
           />
         )}
+        
         <TaskForm
           taskItem={this.state.taskItem}
           handleInputChange={this.handleInputChange}

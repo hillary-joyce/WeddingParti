@@ -1,14 +1,26 @@
 import React from "react";
 import "./Homepage.css"
-import WeddingLogo from "../../wedding_parti_logo1.png";
+import WeddingLogo from "../../images/wedding_parti_logo1.png";
+import BridesmaidsBg from "../../images/bridesmaids_background.jpg";
+import CalendarIcon from "../../images/icons/calendar.png";
+import PhotoIcon from "../../images/icons/photo.png";
+import CheckliIcon from "../../images/icons/checklist.png";
 
+var aboutBackground = {
+  fontSize: '2.5rem',
+  padding: '5% 15%',
+  color: 'white',
+  height: '40vh',
+  backgroundImage: 'url("../../images/bridesmaids_background.jpg")',
+  backgroundSize: 'cover'
+}
 const Homepage = props => (
 <div>
   <div className="homepage-header">
-    <img className="homepage-header-img" src={WeddingLogo}/>
+    <img className="homepage-header-img" src={WeddingLogo} alt="wedding parti logo"/>
     <h1 className="homepage-header-heading">Wedding Parti</h1>
   </div>
-  <div className="homepage-about">
+  <div className="homepage-about" style={aboutBackground}>
     <h2 className="homepage-about-heading">About Wedding Parti </h2>
     <p>Wedding Parti is the easiest way to connect and share information with your bridesmaids
     or groomsmen. No more scrolling through texts or emails, in one spot your parti can find
