@@ -47,7 +47,12 @@ class PhotoGalleryPage extends Component {
         imgurl: this.state.imgurl,
         description: this.state.imgDescription
       })
-      .then(res => this.showImages())
+      .then(res => this.setState(
+        {
+          url: "",
+          imgurl: "",
+          description: ""
+        }, this.showImages()))
       .catch(err => console.log(err))
   }
 

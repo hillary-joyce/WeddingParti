@@ -1,0 +1,9 @@
+.task-manager-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.task-manager-header {
+  grid-column: 1 / span 2;
+}

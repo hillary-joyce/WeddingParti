@@ -1,6 +1,10 @@
 import React, {Component} from "react";
-import WeddingProjects from "../../components/TaskManagerMain";
-import WeddingTasks from "../../components/TaskManagerSingle";
+import WeddingProjects from "../../components/TaskManagerProjects";
+import WeddingTasks from "../../components/TaskManagerTasks";
+import TaskForm from "../../components/AddTaskForm";
+import ProjectForm from "../../components/AddProjectForm";
+import SingleTask from "../../components/SingleTask";
+import SingleProject from "../../components/SingleProject";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import Nav from "../../components/Nav";
@@ -40,13 +44,16 @@ class TaskManagerPage extends Component {
     API.addProject(this.state.weddingId, {
       projectName: this.state.projectName
     })
-      .then(res => this.getProjects())
+      .then(res => this.setState(
+        {
+          projectName: ""
+        }, this.getProjects()))
       .catch(err => console.log(err))
   }
 
   setProjectId = event => {
     const projectId = event.target.getAttribute("value")
-    this.setState({projectId: projectId}, () => console.log(this.state.projectId))
+    this.setState({projectId: projectId})
   }
 
   findProjectId = event => {
@@ -71,7 +78,10 @@ class TaskManagerPage extends Component {
       {
         itemName: this.state.taskItem
       })
-      .then(res => this.findTasks())
+      .then(res => this.setState(
+        {
+          itemName: ""  
+        }, this.findTasks()))
       .catch(err => console.log(err))
   }
 
@@ -103,30 +113,40 @@ class TaskManagerPage extends Component {
           </li>
         </ul>
       </Nav>
-      <label>Project Name</label>
-      <input value={this.state.projectName} name="projectName" onChange={this.handleInputChange}/>
-      <button onClick={this.addProject}>Add New Project</button>
-      <label>Task Name</label>
-      <input value={this.state.taskItem} name="taskItem" onChange={this.handleInputChange}/>
-      <button onClick={this.addTask}>Add New Task</button>
-      <p>state projectId: {this.state.projectId}</p>
+      <div className="container task-manager-container">
+      <h1 className="task-manager-header">Task Manager</h1>
 
       <WeddingProjects>
         {this.state.projects.map(project =>
-        <div key={project._id} value={project._id} className="newproject" onClick={this.findProjectId}>
-          <p value={project._id} index={this.state.projects.indexOf(project)}>Project Name: {project.projectName} </p>
-        </div>
+        <SingleProject
+          _id={project._id}
+          findProjectId={this.findProjectId}
+          projIndex={this.state.projects.indexOf(project)}
+          projectName={project.projectName}
+        />
         )
       }
+        <ProjectForm
+          projectName={this.state.projectName}
+          handleInputChange={this.handleInputChange}
+          addProject={this.addProject}
+        />
       </WeddingProjects>
       <WeddingTasks>
         {this.state.tasks.map(taskItem =>
-          <div key={taskItem._id} value={taskItem._id} className="newtask">
-            <p value={taskItem._id}>{taskItem.itemName}</p>
-            <button onClick={this.removeTask} value={taskItem._id}>Task Completed</button>
-          </div>
+          <SingleTask
+            _id={taskItem._id}
+            itemName = {taskItem.itemName}
+            removeTask = {this.removeTask}
+          />
         )}
+        <TaskForm
+          taskItem={this.state.taskItem}
+          handleInputChange={this.handleInputChange}
+          addTask={this.addTask}
+        />
       </WeddingTasks>
+    </div>
     </div>
 
     )

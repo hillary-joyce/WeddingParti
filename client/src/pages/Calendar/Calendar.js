@@ -62,7 +62,15 @@ class CalendarPage extends Component {
         time: this.state.time
       }
     )
-    .then(res => this.showCalendarDates())
+    .then(res => this.setState(
+      {
+        startdate: "",
+        enddate: "",
+        title: "",
+        location: "",
+        time: ""
+      }, this.showCalendarDates()
+    ))
     .catch(err => console.log(err));
   }
 
