@@ -1,10 +1,11 @@
 import React from "react";
 import "./Homepage.css"
+import WeddingLogo from "../../wedding_parti_logo1.png";
 
 const Homepage = props => (
 <div>
   <div className="homepage-header">
-    <img className="homepage-header-img" src="./images/wedding_parti_logo1.png"/>
+    <img className="homepage-header-img" src={WeddingLogo}/>
     <h1 className="homepage-header-heading">Wedding Parti</h1>
   </div>
   <div className="homepage-about">
