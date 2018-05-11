@@ -5,10 +5,16 @@ const ProjectForm = props => (
   <div className="add-project">
     <h4>Add A New Project </h4>
     <form className="add-project-form">
-      <label>Project Name</label>
-      <input value={props.projectName} name="projectName"
-      onChange={props.handleInputChange}/>
-      <button onClick={props.addProject}>Add New Project</button>
+    <div className="row">
+      <div className="eight columns">
+        <label>Project Name</label>
+        <input className="u-full-width" value={props.projectName} name="projectName"
+        onChange={props.handleInputChange}/>
+      </div>
+      <div className="four columns">
+        <button className="add-project-btn" onClick={props.addProject}>Add</button>
+      </div>
+    </div>
     </form>
   </div>
 )

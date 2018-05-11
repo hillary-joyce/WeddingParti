@@ -1,11 +1,10 @@
 import React, {Component} from "react";
-import { BrowserRouter as  Router, Route, Redirect, withRouter } from "react-router-dom";
+import { BrowserRouter as  Router, Route, Redirect } from "react-router-dom";
 import HomePage from "./pages/Homepage";
 import WelcomePage from "./pages/WelcomePage";
 import CalendarPage from "./pages/Calendar";
 import PhotoGalleryPage from "./pages/PhotoGallery";
 import TaskManagerPage from "./pages/TaskManager";
-import Nav from "./components/Nav"
 import API from "./utils/API";
 import GoogleLogin, { GoogleLogout } from 'react-google-login';
 
@@ -50,7 +49,7 @@ render() {
   return(
 <Router>
 <div>
-  {this.state.userEmail != ""
+  {this.state.userEmail !== ""
     ?
     <div>
     <Redirect to="/wedding"/>

@@ -1,0 +1,14 @@
+.newproject {
+  height: 10vh;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  margin-bottom: 2vh;
+  padding-left: 20px;
+  padding-top: 10px;
+  font-size: 3rem;
+  background: #f2f5f2;
+}
+
+.newproject:hover {
+  background: #e4ece4;
+}

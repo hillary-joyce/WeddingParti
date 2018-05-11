@@ -1,0 +1,31 @@
+.add-task-form{
+  background: #f3fff3;
+  border: 1px solid #DDD;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-size: 1.75rem;
+}
+
+.add-task-form label {
+  font-weight: 200;
+}
+
+.add-task-btn {
+  background: #749e89;
+  color: white;
+  width: 100%;
+  font-size: 1.75rem;
+  margin-top: 3rem;
+}
+
+.add-task{
+  margin-top: 0px;
+}
+
+.hidden {
+  display: none;
+}
+
+.selected {
+  display: block;
+}

@@ -60,13 +60,13 @@ class TaskManagerPage extends Component {
     event.preventDefault();
     const projectId = event.target.getAttribute("value")
     const projectArrayId = event.target.getAttribute("index")
+    console.log(projectId);
     this.setState({projectId: projectId, projectArrayId: projectArrayId},
       () => this.findTasks()
     )
   }
 
   findTasks = () => {
-    console.log(this.state.projectId + this.state.projectArrayId);
     API.findTasks(this.state.weddingId, this.state.projectId)
       .then(res => this.setState({tasks: res.data.taskManager[this.state.projectArrayId].taskItems}, () => console.log(this.state.tasks)))
       .catch(err => console.log(err))
@@ -126,11 +126,6 @@ class TaskManagerPage extends Component {
         />
         )
       }
-        <ProjectForm
-          projectName={this.state.projectName}
-          handleInputChange={this.handleInputChange}
-          addProject={this.addProject}
-        />
       </WeddingProjects>
       <WeddingTasks>
         {this.state.tasks.map(taskItem =>
@@ -140,13 +135,18 @@ class TaskManagerPage extends Component {
             removeTask = {this.removeTask}
           />
         )}
-        
         <TaskForm
           taskItem={this.state.taskItem}
           handleInputChange={this.handleInputChange}
           addTask={this.addTask}
+          projectId={this.state.projectId}
         />
       </WeddingTasks>
+      <ProjectForm
+        projectName={this.state.projectName}
+        handleInputChange={this.handleInputChange}
+        addProject={this.addProject}
+      />
     </div>
     </div>
 

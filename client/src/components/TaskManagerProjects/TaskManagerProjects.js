@@ -3,7 +3,7 @@ import "./TaskManagerProjects.css";
 
 const WeddingProjects = props => (
   <div className="wedding-projects">
-    <h3>Current Projects</h3>
+    <h3>Projects</h3>
     {props.children}
   </div>
 )

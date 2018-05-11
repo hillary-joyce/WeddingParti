@@ -4,7 +4,7 @@ import WeddingLogo from "../../images/wedding_parti_logo1.png";
 import BridesmaidsBg from "../../images/bridesmaids_background.jpg";
 import CalendarIcon from "../../images/icons/calendar.png";
 import PhotoIcon from "../../images/icons/photo.png";
-import CheckliIcon from "../../images/icons/checklist.png";
+import ChecklistIcon from "../../images/icons/checklist.png";
 
 var aboutBackground = {
   fontSize: '2.5rem',
@@ -32,17 +32,17 @@ const Homepage = props => (
   <div className="homepage-features">
     <h2 className = "homepage-features-heading">Features</h2>
     <div className="calendar">
-      <img src="./images/icons/calendar.png" alt="calendar icon"/>
+      <img src={CalendarIcon} alt="calendar icon"/>
       <h3>Calendar</h3>
       <p> Our calendar feature allows parti-ers to see upcoming events at a glance, and add new events as they come up</p>
     </div>
     <div className="photo-gallery">
-      <img src="./images/icons/photo.png" alt="photo icon"/>
+      <img src={PhotoIcon} alt="imagegallery icon"/>
       <h3>Photo Gallery</h3>
       <p> Save inspiration bouquets, dreses and more in one place with our photo gallery</p>
     </div>
     <div className="task-board">
-      <img src="./images/icons/checklist.png" alt="checklist icon"/>
+      <img src={ChecklistIcon} alt="checklist icon"/>
       <h3>Task Board</h3>
       <p> With project boards and an easy-to-use interface, your parti can organize
        of any outing, shower, or event</p>

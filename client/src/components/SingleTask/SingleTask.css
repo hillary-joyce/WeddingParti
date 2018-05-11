@@ -1,0 +1,27 @@
+.newtask {
+  height: 10vh;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  margin-bottom: 2vh;
+  padding-left: 20px;
+  padding-top: 10px;
+  font-size: 3rem;
+  background: #e2ece2;
+}
+
+.newtask p {
+  display: inline-block;
+}
+
+.newproject:hover {
+  background: #e4ece4;
+}
+
+.checkmark {
+  opacity: 0.5;
+  padding-left: 3rem;
+}
+
+.checkmark:hover{
+  opacity: 1;
+}
