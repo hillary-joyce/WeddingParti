@@ -36,7 +36,7 @@ class PhotoGalleryPage extends Component {
     API.getPhotos(this.state.weddingId)
       .then(res => setTimeout(function() {
         this.setState({photoGallery: res.data.photoGallery})
-      }.bind(this), 200)
+      }.bind(this), 500)
       )
       .catch(err => console.log(err))
   };

@@ -35,7 +35,10 @@ class TaskManagerPage extends Component {
 
   getProjects = () => {
     API.findProjects(this.state.weddingId)
-      .then(res => this.setState({projects: res.data.taskManager}))
+      .then(res => setTimeout(function() {
+        this.setState({projects: res.data.taskManager})
+      }.bind(this), 500)
+      )
       .catch(err => console.log(err))
   }
 
@@ -68,13 +71,12 @@ class TaskManagerPage extends Component {
 
   findTasks = () => {
     API.findTasks(this.state.weddingId, this.state.projectId)
-      .then(res => setTimeout(function() {
+      .then(res =>
         this.setState({tasks: res.data.taskManager[this.state.projectArrayId].taskItems})
-      }.bind(this), 200)
       )
       .catch(err => console.log(err))
   }
-  
+
   addTask = event => {
     event.preventDefault();
     API.addTask(this.state.weddingId, this.state.projectId,

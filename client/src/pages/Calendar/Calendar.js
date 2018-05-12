@@ -40,7 +40,8 @@ class CalendarPage extends Component {
     API.getCalendarDates(this.state.weddingId)
       .then(res => setTimeout(function() {
         this.sortCalendarDates(res.data.calendarDates)
-      }.bind(this), 1000)
+        console.log(res.data.calendarDates);
+      }.bind(this), 500)
     )
       .catch(err => console.log(err))
   };
