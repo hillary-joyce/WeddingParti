@@ -30,7 +30,7 @@ class Welcome extends Component {
           bride: res.data.bride,
           partner: res.data.partner,
           venue: res.data.venue,
-          weddingDate: moment(res.data.weddingDate).format("DD / MM / YYYY")
+          weddingDate: moment(res.data.weddingDate).format("MM / DD / YYYY")
         }
       ))
       .catch(err => console.log(err))
