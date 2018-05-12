@@ -30,7 +30,6 @@ const taskManager = new Schema({
 
 
 const weddingSchema = new Schema({
-  weddingName: {type: String, required: true},
   users: {type: Array},
   weddingDate: {type: Date, default: Date.now},
   bride: {type: String},
