@@ -1,7 +1,7 @@
 
 .navabar-logo {
   height: 30px;
-  padding-left: 10px;
+  padding-left: 1.5vw;
 }
 
 
@@ -29,10 +29,10 @@
 ul {
   list-style-type: none;
   margin-top: -40px;
-  margin-left: 2vw;
+  margin-left: 4vw;
 }
 
 .navBar li {
   display: inline;
-  padding: 0 2vw;
+  padding: 0 1vw;
 }

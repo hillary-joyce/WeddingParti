@@ -51,7 +51,7 @@ class PhotoGalleryPage extends Component {
         {
           url: "",
           imgurl: "",
-          description: ""
+          imgDescription: ""
         }, this.showImages()))
       .catch(err => console.log(err))
   }

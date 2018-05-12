@@ -55,7 +55,7 @@ render() {
     <Redirect to="/wedding"/>
     <GoogleLogout
       buttonText="Sign Out"
-      style={{ color: '#aec8bb', background:'white', fontSize: '1em', position: 'absolute', right: '0' }}
+      style={{ color: '#aec8bb', background:'white', fontSize: '1em', position: 'absolute', right: '5px', top: '1px' }}
       onLogoutSuccess={this.logout}>
     </GoogleLogout>
     </div>
@@ -63,9 +63,9 @@ render() {
     <div>
     <Redirect to="/"/>
     <GoogleLogin
-      clientId="35898574910-a499cdol1ke5dkrsu8qhsm0d04qsjq2b.apps.googleusercontent.com"
+      clientId="35898574910-g39kps0tid2n491v6rolq36c7snqhrs6.apps.googleusercontent.com"
       buttonText="Sign In With Google"
-      style={{ color: '#aec8bb', background: 'white', fontSize: '1em', position: 'absolute', right: '0' }}
+      style={{ color: '#aec8bb', background: 'white', fontSize: '1em', position: 'absolute', right: '5px', top: '5px' }}
       onSuccess={this.responseGoogle}
       onFailure={this.responseGoogle}
     />

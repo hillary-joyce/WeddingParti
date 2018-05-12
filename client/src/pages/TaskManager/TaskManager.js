@@ -80,7 +80,7 @@ class TaskManagerPage extends Component {
       })
       .then(res => this.setState(
         {
-          itemName: ""
+          taskItem: ""
         }, this.findTasks()))
       .catch(err => console.log(err))
   }
