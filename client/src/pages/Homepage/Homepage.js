@@ -6,8 +6,6 @@ import API from "../../utils/API";
 
 class HomePage extends Component {
   state = {
-    weddingName: "",
-    password: "",
     bride: "",
     email: "",
     users: "",
@@ -22,8 +20,6 @@ class HomePage extends Component {
     users.push(this.state.email)
     API.createWedding(
       {
-        weddingName: this.state.weddingName,
-        password: this.state.password,
         bride: this.state.bride,
         users: users,
         partner: this.state.partner,
@@ -50,8 +46,6 @@ class HomePage extends Component {
     <div>
       <Homepage>
       <SignUpForm
-        weddingName={this.state.weddingName}
-        password={this.state.password}
         bride={this.state.bride}
         email={this.state.email}
         users={this.state.users}
