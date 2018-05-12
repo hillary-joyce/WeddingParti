@@ -126,6 +126,11 @@ class TaskManagerPage extends Component {
         />
         )
       }
+      <ProjectForm
+        projectName={this.state.projectName}
+        handleInputChange={this.handleInputChange}
+        addProject={this.addProject}
+      />
       </WeddingProjects>
       <WeddingTasks>
         {this.state.tasks.map(taskItem =>
@@ -142,11 +147,6 @@ class TaskManagerPage extends Component {
           projectId={this.state.projectId}
         />
       </WeddingTasks>
-      <ProjectForm
-        projectName={this.state.projectName}
-        handleInputChange={this.handleInputChange}
-        addProject={this.addProject}
-      />
     </div>
     </div>
 

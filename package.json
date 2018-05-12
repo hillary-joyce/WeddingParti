@@ -8,16 +8,22 @@
     "client": "node scripts/start-client.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "jest": "^22.4.3",
+    "nodemon": "^1.11.0",
+    "react-test-renderer": "^16.3.2"
   },
   "dependencies": {
-    "@sendgrid/mail": "^6.2.1",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "expres": "^0.0.5",
@@ -26,7 +32,6 @@
     "mongoose": "^5.0.16",
     "morgan": "^1.9.0",
     "react-big-calendar": "^0.19.0",
-    "react-event-calendar": "^0.3.0",
     "react-google-login": "^3.2.1"
   }
 }

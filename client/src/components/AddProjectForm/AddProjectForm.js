@@ -3,7 +3,6 @@ import "./AddProjectForm.css";
 
 const ProjectForm = props => (
   <div className="add-project">
-    <h4>Add A New Project </h4>
     <form className="add-project-form">
     <div className="row">
       <div className="eight columns">

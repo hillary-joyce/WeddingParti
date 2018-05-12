@@ -1,16 +1,19 @@
 .newtask {
-  height: 10vh;
+  height: 8vh;
   border: 1px solid #DDD;
   border-radius: 4px;
   margin-bottom: 2vh;
   padding-left: 20px;
-  padding-top: 10px;
   font-size: 3rem;
   background: #e2ece2;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  align-items: center;
+  justify-content: center;
 }
 
 .newtask p {
-  display: inline-block;
+  margin-bottom: 0;
 }
 
 .newproject:hover {
