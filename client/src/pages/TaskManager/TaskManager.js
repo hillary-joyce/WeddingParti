@@ -68,10 +68,13 @@ class TaskManagerPage extends Component {
 
   findTasks = () => {
     API.findTasks(this.state.weddingId, this.state.projectId)
-      .then(res => this.setState({tasks: res.data.taskManager[this.state.projectArrayId].taskItems}, () => console.log(this.state.tasks)))
+      .then(res => setTimeout(function() {
+        this.setState({tasks: res.data.taskManager[this.state.projectArrayId].taskItems})
+      }.bind(this), 200)
+      )
       .catch(err => console.log(err))
   }
-
+  
   addTask = event => {
     event.preventDefault();
     API.addTask(this.state.weddingId, this.state.projectId,

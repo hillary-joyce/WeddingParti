@@ -34,9 +34,10 @@ class PhotoGalleryPage extends Component {
   //Image Gallery Routes
   showImages = () => {
     API.getPhotos(this.state.weddingId)
-      .then(res => this.setState({
-        photoGallery: res.data.photoGallery
-      }))
+      .then(res => setTimeout(function() {
+        this.setState({photoGallery: res.data.photoGallery})
+      }.bind(this), 200)
+      )
       .catch(err => console.log(err))
   };
 
