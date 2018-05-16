@@ -37,7 +37,7 @@ class TaskManagerPage extends Component {
     API.findProjects(this.state.weddingId)
       .then(res => setTimeout(function() {
         this.setState({projects: res.data.taskManager})
-      }.bind(this), 500)
+      }.bind(this), 300)
       )
       .catch(err => console.log(err))
   }

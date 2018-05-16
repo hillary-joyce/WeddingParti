@@ -14,3 +14,19 @@
   height: 15vh;
   padding: 5vh;
 }
+
+@media only screen and (max-width: 420px) {
+  .welcome-page {
+    width: 100vw;
+  }
+  .welcome-page h1 {
+    font-size: 3rem;
+  }
+  .welcome-page h2 {
+    font-size: 2.6rem;
+    padding-top: 3vh;
+  }
+  .welcome-page img {
+    height: 10vh !important;
+  }
+}

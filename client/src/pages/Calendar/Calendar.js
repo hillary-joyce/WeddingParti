@@ -41,7 +41,7 @@ class CalendarPage extends Component {
       .then(res => setTimeout(function() {
         this.sortCalendarDates(res.data.calendarDates)
         console.log(res.data.calendarDates);
-      }.bind(this), 500)
+      }.bind(this), 300)
     )
       .catch(err => console.log(err))
   };

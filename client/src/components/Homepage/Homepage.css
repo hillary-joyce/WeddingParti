@@ -12,6 +12,10 @@
   padding: 10px;
 }
 
+.homepage-about {
+
+}
+
 .homepage-features {
   padding: 5% 15%;
   display: grid;
@@ -43,4 +47,26 @@
 
 .homepage-signup-form-heading {
   text-align: center;
+}
+
+@media only screen and (max-width: 420px){
+  .homepage-header-img {
+    height: 20vh;
+    margin: 10vh auto 0;
+  }
+
+  .homepage-header {
+    height: 40vh;
+  }
+
+  .homepage-about {
+    font-size: 2rem !important;
+    padding: 5% 5% !important;
+  }
+  .homepage-features {
+    display: block;
+  }
+  .sign-up-btn {
+    width: 80%;
+  }
 }
