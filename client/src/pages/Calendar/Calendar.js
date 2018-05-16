@@ -110,7 +110,7 @@ render() {
             key={date.start}
             date={moment(date.start).format("DD")}
             month={moment(date.start).format("MMM")}
-            fulldate={moment(date.start).format("DD / MM / YYYY")}
+            fulldate={moment(date.start).format("MM / DD / YYYY")}
             time={date.time}
             location={date.location}
             description={date.title}
